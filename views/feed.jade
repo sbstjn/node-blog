@@ -1,0 +1,21 @@
+doctype xml
+rss(version="2.0")
+  channel
+    title #{meta.site}
+    atom:link(href=url,rel="self",type="application/rss+xml")
+    description Articles written by #{meta.author}
+    link=url
+    sy:updatePeriod hourly
+    sy:updateFrequency 1
+    generator http://semu.mp/node-blog.html
+    lastBuildDate=list[0].date.toUTCString()
+    pubDate=list[0].date.toUTCString()
+    - for (var i = 0; i < list.length; i++)
+      item
+        title=list[i].name
+        link=list[i].url
+        comments=list[i].url + '#comments'
+        guid=list[i].url
+        dc:creator=meta.author
+        pubDate=list[i].date.toUTCString()
+        description!=list[i].html

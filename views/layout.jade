@@ -1,0 +1,127 @@
+!!! 5
+html(lang="de",xmlns="http://www.w3.org/1999/xhtml",xmlns:og="http://ogp.me/ns#",xmlns:fb="https://www.facebook.com/2008/fbml")
+  head
+    title #{meta.title} - #{meta.site}
+    - if (meta.desc)
+      meta(name="description", contents=meta.desc)
+    - if (meta.keywords)
+      meta(name="keywords", contents=meta.keywords)
+    - if (meta.author)
+      meta(name="author", contents=meta.author)
+        
+    link(rel="alternate",type="application/rss+xml",title="RSS Feed",href="/feed/")    
+    link(rel="stylesheet", href="/twitter/bootstrap.css")
+    link(rel="stylesheet", href="/styles/docs.css")
+    link(rel="stylesheet", href="/styles/custom.css")
+    link(rel="stylesheet", href="/google-code-prettify/prettify.css")
+    
+    script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")    
+    script(type="text/javascript", src="/prettyprint/prettify.js")
+    script(type="text/javascript", src="/scripts/timeago.js")    
+    script(type="text/javascript", src="/scripts/init.js")
+    script(type="text/javascript", src="/scripts/showdown.js")
+    script(type="text/javascript", src="/scripts/bootstrap-modal.js")
+    script(type="text/javascript", src="/scripts/bootstrap-dropdown.js")
+    script(type="text/javascript", src="/ace/src/ace.js")
+    script(type="text/javascript", src="/ace/src/theme-clouds.js")
+    script(type="text/javascript", src="/ace/src/mode-markdown.js")    
+    - if (session.valid)
+      script
+        var auth = true, redirectTo = null, maxID = #{session.maxID};
+    - else
+      script
+        var auth = false, redirectTo = null, maxID = null;
+  body(onload="prettyPrint()")
+    .container
+      section#navigation
+        .topbar-wrapper(style="z-index: 5;")
+          .topbar(data-dropdown="dropdown")
+            .topbar-inner
+              .container
+                h3
+                  a(href="/") #{meta.site}
+                ul.nav
+                  li(class=(meta.current == 'home' ? 'active' : ''))
+                    a(href="/") Home
+                  li(class=(meta.current == 'posts' ? 'active' : ''))
+                    a(href="/posts") Posts
+                ul.nav.secondary-nav
+                  - if (session.valid) 
+                    li#adminmenu.dropdown
+                      a.dropdown-toggle(href="#3") Administration
+                      ul.dropdown-menu
+                        li
+                          a#buttoncompose(href="#") Compose Article…
+                        li
+                          a#buttondrafts(href="#") Show Drafts…
+                  - else
+                    li
+                      a#login(href="#") Login
+    #content!= body
+    #logindata.modal.hide.fade
+      .modal-header
+        a.close(href="#") &times;
+        h3 Authentication Required!
+      .modal-body
+        form
+          fieldset
+            .clearfix
+              label(for="uname") Username
+              .input
+                input#uname.xlarge(type="text")
+            .clearfix
+              label(for="pword") Password
+              .input
+                input#pword.xlarge(type="password")                
+      .modal-footer
+        input#authenticate.pull-right.btn.primary(type="submit", value="Login")
+        span.pull-right#loginstatus.loader
+          img(src="/loader.gif")
+    #composemodal.modal.hide.fade
+      .modal-header
+        a.close(href="#") &times;
+        h3 Compose Article
+      .modal-body
+        form
+          fieldset
+            .clearfix
+              label(for="npid") New ID
+              .input
+                input#npid.xlarge(type="text","readonly"="readonly",value=session.maxID)
+            .clearfix
+              label(for="ntitle") Headline
+              .input
+                input#ntitle.xlarge(type="text")    
+                br 
+                br
+                span.help-block New articles will be hidden per default.
+      .modal-footer
+        input#composecreate.pull-right.btn.primary(type="submit", value="Create")
+        span.pull-right#composestatus.loader
+          img(src="/loader.gif")   
+    #draftsmodal.modal.hide.fade
+      .modal-header
+        a.close(href="#") &times;
+        h3 Unpublished Drafts
+      .modal-body.loading-body
+        p
+          img(src="/loader-big.gif")
+      .modal-footer
+        input#composecreate.pull-right.btn(type="button", value="close")
+    footer.footer
+      .container
+        p All Posts, Ideas and Information written by  
+          a(href="/about") #{meta.author}
+          | . <br />Nice Nerdporn thanks to  
+          a(href="http://semu.mp/node-blog.html") node-blog
+          | ,          
+          a(href="http://twitter.github.com/bootstrap/") bootstrap
+          | ,
+          a(href="http://github.com/semu/node-kickstart/") Kickstart
+          | ,
+          a(href="http://jade-lang.com/") Jade
+          | ,
+          a(href="http://lesscss.org/") Less
+          |  and 
+          a(href="http://daringfireball.net/projects/markdown/") Markdown
+          | …

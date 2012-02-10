@@ -1,0 +1,9 @@
+{
+  "host": "example.com",
+  "port": 8080,
+  "admin": {"username": "admin", "password": "loremipsumdolorsitamet"},
+  "author": "Lorem Ipsum",
+  "disqus": "loremipsum",
+  "paths": {
+    "articles": "markdown"}
+}

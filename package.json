@@ -1,0 +1,20 @@
+{
+  "author": "semu <c@semu.mp> (http://github.com/semu)",
+  "name": "node-blog",
+  "description": "Markdown Blog with twitter bootstrap UI and ace editor for composing…",
+  "version": "0.0.1",
+  "homepage": "https://github.com/semu/node-blog",
+  "contributors": [ 
+    { "name": "Sebastian Müller", "email": "c@semu.mp" }],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/semu/node-blog.git"
+  },
+  "engines": {
+    "node": "~v0.4.10"
+  },
+  "dependencies": {
+    "kickstart": ">= 0.0.3",
+    "node-markdownblog": ">= 1.0.1"},
+  "devDependencies": {}
+}

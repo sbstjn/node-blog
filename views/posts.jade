@@ -1,0 +1,28 @@
+#tag-cloud.container
+  section.cloud
+    ul
+      - for (var i in tags)
+        li
+          span(style="font-size:"+tags[i]+"px;")
+            a(href="/tag/" + i + ".html")=i
+#article-list.container
+  section#article
+    .page-header
+      h1 #{meta.headline} 
+        small #{list.length} available
+  - for (var i = 0; i < list.length; i++) 
+    .row
+      .span2.datefield
+        code=list[i].datestring
+      .span14.cLeft
+        h3.headline
+          a(href=list[i].url,title=list[i].name) #{list[i].name} 
+          small
+            abbr.timeago(title=list[i].date.toISOString()) #{list[i].date.toISOString()}
+          - if (list[i].readtime.min > 0)
+            small , #{list[i].readtime.min} min #{list[i].readtime.sec} sec to read…
+          - else 
+            small , #{list[i].readtime.sec} sec to read…
+    .row
+      .offset2.span14.cLeft
+        #content!=list[i].excerpt          

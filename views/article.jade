@@ -1,0 +1,52 @@
+.container
+  section#article
+    - if (article.hidden)
+      .alert-message.warning(style="margin-top: -52px")
+        p This article is <strong>not published!</strong>
+    .page-header
+      - if (auth)
+        .github.pull-right
+          a#editMode.btn(href="#") Edit
+      h1 #{article.name} 
+        small.time
+          abbr.timeago(title=article.date.toISOString()) #{article.date.toISOString()}
+        - if (article.readtime.min > 0)
+          small.read , #{article.readtime.min} min #{article.readtime.sec} sec to read…
+        - else 
+          small.read , #{article.readtime.sec} sec to read…
+    .row#articlerow
+      a(name="article-content", id="article-content")    
+      #preview.span12!= article.html
+        - if (!article.hidden)
+          #disqus_thread
+          script(type="text/javascript")
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = '#{meta.disqus}'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+      .span4
+        table#article-sidebar
+          tr
+            td.key Datum:
+            td.info=article.date.toISOString().split('T')[0]   
+          tr
+            td.key Tags:
+            td.info
+              ul.tags
+                - for (var i = 0; i < article.tags.length; i++)
+                  li
+                    a(href="/tag/" + article.tags[i].url + ".html",title='Alle Artikel mit Tag "' + article.tags[i].name + '"') #{article.tags[i].name}
+          - if (article.sources.length > 0)
+            tr
+              td.key Links:
+              td.info
+                ul.tags
+                  - for (var i = 0; i < article.sources.length; i++)
+                    li
+                      a(href=article.sources[i].url,title=article.sources[i].name) #{article.sources[i].name}
+    .row#articlemarkdown(style="display: none;")=article.md
