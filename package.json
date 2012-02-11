@@ -2,7 +2,7 @@
   "author": "semu <c@semu.mp> (http://github.com/semu)",
   "name": "node-blog",
   "description": "Markdown Blog with twitter bootstrap UI and ace editor for composing…",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/semu/node-blog",
   "contributors": [ 
     { "name": "Sebastian Müller", "email": "c@semu.mp" }],

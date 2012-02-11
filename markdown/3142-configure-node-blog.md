@@ -29,6 +29,6 @@ After configuration you can easily start node-blog with `node app.js`, point you
 
 What else you might wanna know? What about…
 
- - [How to manage and compose articles?](http://hazelno.de:8400/managing-and-composing-articles-3143.html)
- - [Customizing the page layput?](http://hazelno.de:8400/customizing-the-page-layout-3144.html)
- - [Where to put your files?](http://hazelno.de:8400/where-to-put-your-files-less-jade-css-images-3145.html)
+ - [How to manage and compose articles?](/managing-and-composing-articles-3143.html)
+ - [Customizing the page layput?](/customizing-the-page-layout-3144.html)
+ - [Where to put your files?](/where-to-put-your-files-less-jade-css-images-3145.html)
