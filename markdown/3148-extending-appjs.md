@@ -8,18 +8,18 @@
    example.com: http://example.com 
 */
 
-node-blog uses the default routing system from express.js, for easy setup the [node-kickstart](http://semu.mp/node-kickstart.html) framework is added as well. You can use all known express methods for adding routes like `.get()`, `.post()` or `.all()`. Last `*` route is called if no other route matched, insert your custom callbacks before `line 184`.
+node-blog uses the default routing system from express.js, for easy setup the [node-kickstart](http://semu.mp/node-kickstart.html) framework is added as well. You can use all known express methods for adding routes like `.get()`, `.post()` or `.all()`. Last `*` route is called if no other route matched, insert your custom callbacks before this line!
 
     srv.all('*', function(req, res, next) {
       throw new NotFound;
     });
     
-When adding custom sites, make sure to follow the basic node-blog rules for integrating your additions to the routing. You can set HTTP meta information using single function calls, for example `mdb.setMeta('current', 'home')` for setting the current menu item…
+When adding custom sites, make sure to follow the node-blog structure for integrating your additions to the existing routing. You can set variables and HTTP meta information using single function calls, for example `mdb.setMeta('current', 'home')` for setting the current menu item…
 
     srv.all('/', function(req, res) {
-        mdb.setMeta('url', mdb.getDefault('url'));
-    	mdb.setMeta('title', 'Home, node-blog');
-        mdb.setMeta('current', 'home');
+      mdb.setMeta('url', mdb.getDefault('url'));
+      mdb.setMeta('title', 'Home, node-blog');
+      mdb.setMeta('current', 'home');
     
       return res.render('home', mdb.jadeData({list: mdb.getArticles()}, req));
     });

@@ -8,7 +8,7 @@
    node-blog at GitHub: http://github.com/semu/node-blog
 */
 
-Download the most recent [node-blog version from GitHub](http://), all code is releases under the terms of the [MIT License](http://). Feel free to modify everything as the way like it, send me [Pull Request on GitHub](http://) if you have created a nice feature or fixed some bugs!
+Download the most recent [node-blog version from GitHub](http://github.com/semu/node-blog), all code is releases under the terms of the [MIT License](http://www.opensource.org/licenses/mit-license.php). Feel free to modify everything as the way like it, send me [Pull Request on GitHub](http://github.com/semu/node-blog) if you have created a nice feature or fixed some bugs!
 
 ![node-blog on github](/screenshots/github.jpeg)
 

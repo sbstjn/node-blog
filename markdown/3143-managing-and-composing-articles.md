@@ -11,7 +11,7 @@ Please login with the username and password you have configured or use the defau
 
 ![node-blog composing article](/screenshots/compose.jpeg)
 
-After having successfully logged in you can access the administration and view your unpublished drafts or create a new article. Every published articles has an `Edit` button on the top right if you are logged in. All markdown files follow a specific but simple schema and need to in`clude a basic header formatted in [YAML](http://).
+After having successfully logged in you can access the administration and view your unpublished drafts or create a new article. Every published articles has an `Edit` button on the top right if you are logged in. All markdown files follow a specific but simple schema and need to in`clude a basic header formatted in [YAML](http://www.yaml.de/).
 
     /*
      Title: Managing and Composing Articles
