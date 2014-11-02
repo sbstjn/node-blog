@@ -1,6 +1,6 @@
 [node-blog](http://semu.mp/node-blog.html) is a basic blog written in Node.js with nice inline composing and markdown storage. All writing is done within your web browser using the [ace editor](http://ace.ajax.org/), published articles as well as drafts are stored as [markdown](http://daringfireball.net/projects/markdown/) files on your server.
 
-![node-blog](http://semu.mp/node-blog.png)
+![node-blog](http://cdn.sbstjn.com/2014/10/node-blog.8e847030.png)
 
 You can easily manage your personal site with node-blog, see [semu.mp](http://semu.mp) for a working example using [node-blog](http://semu.mp/node-blog.html). There is a nice tag cloud available, an RSS news feed for sure and comments with the help from [disqus](http://disqus.com/).
 
